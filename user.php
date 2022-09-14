@@ -2,18 +2,16 @@
 include 'conn.php';
 class user 
 {
+   public function users(){
+      $count=0;
+       $con=new conn();
+       $con->db_connect();
 
-public function users()
-{
-   $count=0;
-   $con=new conn();
-   $con->db_connect();
-if(isset($_POST['check']))
-{
-$con->insert();
-}   
+      if(isset($_POST['check'])){
+         $con->insert();
+      }   
+   }
 }
- }
     $us=new user();
     $us->users();
     ?>

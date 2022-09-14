@@ -2,16 +2,15 @@
 include 'conn.php';
 class update 
     {
-        public function updates()
-            {
-                $c=new conn();
-                 $c->db_connect();
-                $c->update();
-                    if(isset($_POST['done']))
-                        {
-                             $c->updates();
-                        }
-                }
+        public function updates(){
+            $c=new conn();
+            $c->db_connect();
+            $c->update();
+
+            if(isset($_POST['done'])){
+                $c->updates();
+            }
+        }
     }
 
 $up=new update();

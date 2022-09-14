@@ -2,8 +2,7 @@
 include 'conn.php';
 class de
 {
-    public function delete()
-    {
+    public function delete(){
         $c=new conn();
         $c->db_connect();
         $c->deletes();

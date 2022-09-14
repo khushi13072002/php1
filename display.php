@@ -2,14 +2,14 @@
 <?php
 session_start();
 include 'conn.php';
-if(isset($_SESSION['is_login']))
-{
+if(isset($_SESSION['is_login'])){
     if ( $_SESSION['is_login'] == false ) {
        header('location:insert.php');
     }
-}else
-        header('location:insert.php');
-
+}
+else{
+       header('location:insert.php');
+}
 ?>
 
 
@@ -94,12 +94,13 @@ if(isset($_SESSION['is_login']))
 //include 'conn.php';
 class  display extends conn
     {
-      public function display()
-        {
-          $sql="select * from details";
-          $query=mysqli_query($this->connection,$sql);
-              while($result=mysqli_fetch_array($query))
-                    {
+      public function display(){
+
+        $sql="select * from details";
+        $query=mysqli_query($this->connection,$sql);
+
+        while($result=mysqli_fetch_array($query))
+          {
 ?>
 <tbody>
 <tr>
