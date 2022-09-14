@@ -1,25 +1,20 @@
 <?php 
 include 'conn.php';
-class user extends conn
+class user 
 {
-
 
 public function users()
 {
    $count=0;
+   $con=new conn();
+   $con->db_connect();
 if(isset($_POST['check']))
 {
-   
-$username=$_POST['username'];
-$password=$_POST['password'];
-   $q="INSERT INTO details(username,password) VALUES('$username','$password')";
-   $query=mysqli_query($this->connection,$q);
-    header('location:display.php');
-}
+$con->insert();
+}   
 }
  }
     $us=new user();
-    $us->db_connect();
     $us->users();
     ?>
 <!DOCTYPE html>

@@ -1,20 +1,15 @@
 <?php
 include 'conn.php';
-//$id=$_GET['id'];
-//echo $id;
-//$sql='delete from details where id=$id';
-//mysqli_query($conn,$sql);
-class delete extends conn
-{ 
-    public function delete(){
-    $id = $_GET['id'];
-    echo $id;
-$sql="delete from details where id=$id";
-mysqli_query($this->connection,$sql);
-header('location:display.php');
+class de
+{
+    public function delete()
+    {
+        $c=new conn();
+        $c->db_connect();
+        $c->deletes();
+            
+    }
 }
-}
-$del=new delete();
-$del->db_connect();
-$del->delete();
+$d=new de();
+$d->delete();
 ?> 

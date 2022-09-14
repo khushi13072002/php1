@@ -1,34 +1,21 @@
 <?php
 include 'conn.php';
-class update extends conn
-{
-public function updates()
-{
-$id=$_GET['id'];
-$q="select * from details where id=$id";
-$query=mysqli_query($this->connection,$q);
-while($result=mysqli_fetch_array($query))
-{
-$username=$result['username'];
-$password=$result['password'];
-}
-
-if(isset($_POST['done']))
-{
-$id=$_GET['id'];
-$username=$_POST['username'];
-$password=$_POST['password'];
-$q="update details set id=$id,username='$username',password='$password' where id=$id";
-$query=mysqli_query($this->connection,$q);
-header('location:display.php');
-}
-}
-}
+class update 
+    {
+        public function updates()
+            {
+                $c=new conn();
+                 $c->db_connect();
+                $c->update();
+                    if(isset($_POST['done']))
+                        {
+                             $c->updates();
+                        }
+                }
+    }
 
 $up=new update();
-$up->db_connect();
 $up->updates();
-//$up->check();
 ?>
     
 <!DOCTYPE html>
