@@ -1,28 +1,24 @@
 <?php 
 session_start();
 include 'conn.php';
-class insert 
-{
-  public function sess()
-   {
+
+   function session(){
+
       if (isset($_SESSION['is_login']) && $_SESSION['is_login'] == true ) {
-      header('location:display.php'); }
-   }
-  public function check()
-  {
-  $count=0;
-  $c1=new conn();
-  $c1->db_connect();
-    if(isset($_POST['done']))
-      {
-         $c1->selects();
-         
+        header('location:display.php'); }
+       }
+
+    function check(){
+
+      $count=0;
+      $connection=new conn();
+      $connection->db_connect();
+       if(isset($_POST['done'])){
+          $connection->selects();
       }
-   } 
-}
-  $ins=new insert();
-  $ins->sess();
-  $ins->check();
+  } 
+
+  
 ?>
 <!DOCTYPE html>
 <html>

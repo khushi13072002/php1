@@ -76,6 +76,6 @@ class conn
    			header('location:display.php');       
 	}					
 }
- $c1=new conn();
- $c1->db_connect();
+ $connection=new conn();
+ $connection->db_connect();
 ?>
